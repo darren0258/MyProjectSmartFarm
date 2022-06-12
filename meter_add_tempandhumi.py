@@ -1,5 +1,7 @@
 import lvgl as lv
 import dht
+import machine, dht
+from machine import Pin, Timer
 
 from ili9XXX import ili9341
 disp = ili9341(spihost=1,mosi=23,miso=19,clk=18,cs=5,dc=21,rst=22, rot=0x20,width=320, height=240)
@@ -45,18 +47,6 @@ lv.anim_t.start(a2)
 
 sensor = dht.DHT22(Pin(25))
 
-temp_style = lv.style_t()
-spans_group = lv.spangroup(lv.scr_act())
-span_temp = spans_group.new_span()
-span_temp.style.set_text_color(lv.palette_main(lv.PALETTE.BLUE))
-spans_group.align(lv.ALIGN.TOP_RIGHT, 0, 0)
-
-humi_style = lv.style_t()
-spans_group2 = lv.spangroup(lv.scr_act())
-span_humi = spans_group2.new_span()
-span_humi.style.set_text_color(lv.palette_main(lv.PALETTE.GREEN))
-spans_group2.align(lv.ALIGN.TOP_RIGHT, 0, 20)
-
 
 def mycallback(t):
     sensor.measure()
@@ -66,9 +56,6 @@ def mycallback(t):
     a2.set_values(int(humi), int(humi))
     lv.anim_t.start(a1)
     lv.anim_t.start(a2)
-    
-    span_temp.set_text_static("temp : " + str(int(temp)))
-    span_humi.set_text_static("humi : " + str(int(humi)))
     
 tim = machine.Timer(1)
 tim.init(period=1000, callback=mycallback)

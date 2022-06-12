@@ -23,14 +23,15 @@ tab3 = tabview.add_tab("Tab 3")
 decoder = lv.img.decoder_create()
 decoder.info_cb = get_png_info
 decoder.open_cb = open_png
-with open('kku9.png' ,'rb') as f: # Read the pictures that we have brought into the board.
+with open('kku9.png' ,'rb') as f:
       png_data = f.read()
 
 png_img_dsc = lv.img_dsc_t({
     'data_size': len(png_data),
     'data': png_data})
 
-img1 = lv.img(tab2)
+img1 = lv.img(tab1)
 img1.center()
 img1.set_src(png_img_dsc)
+
 

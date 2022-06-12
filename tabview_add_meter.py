@@ -25,84 +25,12 @@ tab1 = tabview.add_tab("Tab 1")
 tab2 = tabview.add_tab("Tab 2")
 tab3 = tabview.add_tab("Tab 3")
 
-tab1.set_style_bg_color(lv.palette_lighten(lv.PALETTE.DEEP_ORANGE, 3), 0)
-tab1.set_style_bg_opa(lv.OPA.COVER, 0)
-
-tab2.set_style_bg_color(lv.palette_lighten(lv.PALETTE.AMBER, 3), 0)
-tab2.set_style_bg_opa(lv.OPA.COVER, 0)
-
-tab3.set_style_bg_color(lv.palette_lighten(lv.PALETTE.RED, 1), 0)
-tab3.set_style_bg_opa(lv.OPA.COVER, 0)
-
-labeltab1 = lv.label(tab1)
-labeltab1.set_text("Tab 1")
-labeltab1.align(lv.ALIGN.CENTER, 0, 0)
-
-
-style = lv.style_t()
-style.init()
-
-style.set_border_width(2)
-style.set_border_color(lv.palette_main(lv.PALETTE.RED))
-style.set_pad_all(10)
-
-style.set_text_color(lv.palette_main(lv.PALETTE.BLUE))
-style.set_text_letter_space(5)
-style.set_text_decor(lv.TEXT_DECOR.UNDERLINE)
-
-label = lv.label(tab1)
-label.set_text("tab Style")
-label.align(lv.ALIGN.CENTER, 0, 0)
-label.add_style(style, 0)
-
-
-
-def event_handlerR1(e):
-    r1code = e.get_code()
-    r1obj = e.get_target()
-    if r1code == lv.EVENT.VALUE_CHANGED:
-        print("aa")
-        
-def event_handlerR2(e):
-    r1code = e.get_code()
-    r1obj = e.get_target()
-    if r1code == lv.EVENT.VALUE_CHANGED:
-        print("aa")
-
-tab1.set_flex_flow(lv.FLEX_FLOW.COLUMN_WRAP)
-tab1.set_flex_align(lv.FLEX_ALIGN.CENTER, lv.FLEX_ALIGN.CENTER, lv.FLEX_ALIGN.CENTER)
-
-
-sw1 = lv.switch(tab1)
-sw1.add_event_cb(event_handlerR1 ,lv.EVENT.ALL, None)
-
-sw2 = lv.switch(tab1)
-sw2.add_event_cb(event_handlerR2 ,lv.EVENT.ALL, None)
-
-
-decoder = lv.img.decoder_create()
-decoder.info_cb = get_png_info
-decoder.open_cb = open_png
-with open('kku9.png' ,'rb') as f:
-      png_data = f.read()
-
-png_img_dsc = lv.img_dsc_t({
-    'data_size': len(png_data),
-    'data': png_data})
-
-img1 = lv.img(tab2)
-img1.center()
-img1.set_src(png_img_dsc)
-
-
-
-
 
 
 def set_value(indic,v):
     meter.set_indicator_end_value(indic, v)   
 
-meter = lv.meter(tab3)
+meter = lv.meter(tab1)
 meter.align(lv.ALIGN.CENTER, 0, 20)
 meter.set_size(190, 190)
 
@@ -144,6 +72,7 @@ def mycallback(t):
     
 tim = machine.Timer(1)
 tim.init(period=1000, callback=mycallback)
+
 
 
 
