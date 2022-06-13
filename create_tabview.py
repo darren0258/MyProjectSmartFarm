@@ -20,17 +20,12 @@ tab1 = tabview.add_tab("Tab 1")
 tab2 = tabview.add_tab("Tab 2")
 tab3 = tabview.add_tab("Tab 3")
 
-decoder = lv.img.decoder_create()
-decoder.info_cb = get_png_info
-decoder.open_cb = open_png
-with open('kku9.png' ,'rb') as f: # Read the pictures that we have brought into the board.
-      png_data = f.read()
+tab1.set_style_bg_color(lv.palette_lighten(lv.PALETTE.DEEP_ORANGE, 3), 0)
+tab1.set_style_bg_opa(lv.OPA.COVER, 0)
 
-png_img_dsc = lv.img_dsc_t({
-    'data_size': len(png_data),
-    'data': png_data})
+tab2.set_style_bg_color(lv.palette_lighten(lv.PALETTE.AMBER, 3), 0)
+tab2.set_style_bg_opa(lv.OPA.COVER, 0)
 
-img1 = lv.img(tab2)
-img1.center()
-img1.set_src(png_img_dsc)
+tab3.set_style_bg_color(lv.palette_lighten(lv.PALETTE.RED, 3), 0)
+tab3.set_style_bg_opa(lv.OPA.COVER, 0)
 

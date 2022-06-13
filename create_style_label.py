@@ -9,7 +9,7 @@ touch = xpt2046(cs=33,mhz=1,transpose=False, cal_x0=3780, cal_y1=252, cal_x1=393
 style = lv.style_t()
 style.init()
 
-style.set_border_width(2)
+style.set_border_width(5)
 style.set_border_color(lv.palette_main(lv.PALETTE.RED))
 style.set_pad_all(10)
 
@@ -18,6 +18,6 @@ style.set_text_letter_space(5)
 style.set_text_decor(lv.TEXT_DECOR.UNDERLINE)
 
 label = lv.label(lv.scr_act())
-label.set_text("RELAY CONTROL")
+label.set_text("Style")
 label.align(lv.ALIGN.CENTER, 0, 0)
 label.add_style(style, 0)

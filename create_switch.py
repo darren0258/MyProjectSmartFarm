@@ -12,10 +12,20 @@ def event_handlerR1(e):
     r1obj = e.get_target()
     if r1code == lv.EVENT.VALUE_CHANGED:
         print("aa")
+        
+def event_handlerR2(e):
+    r1code = e.get_code()
+    r1obj = e.get_target()
+    if r1code == lv.EVENT.VALUE_CHANGED:
+        print("aa")
 
 sw = lv.switch(lv.scr_act())
 sw.align(lv.ALIGN.CENTER, 0, 0)
 sw.add_event_cb(event_handlerR1 ,lv.EVENT.ALL, None)
+
+sw2 = lv.switch(lv.scr_act())
+sw2.align(lv.ALIGN.CENTER, 0, 50)
+sw2.add_event_cb(event_handlerR2 ,lv.EVENT.ALL, None)
 
 
 

@@ -39,3 +39,59 @@ labeltab3 = lv.label(tab3)
 labeltab3.set_text("Tab 3")
 labeltab3.align(lv.ALIGN.CENTER, 0, 0)
 
+
+
+
+
+
+# Define the function of each switch.
+def event_handlerR1(e):
+    r1code = e.get_code()
+    r1obj = e.get_target()
+    if r1code == lv.EVENT.VALUE_CHANGED:
+        if r1obj.has_state(lv.STATE.CHECKED):
+            relay12.value(1)
+        else:
+            relay12.value(0)
+            
+def event_handlerR2(e):
+    r2code = e.get_code()
+    r2obj = e.get_target()
+    if r2code == lv.EVENT.VALUE_CHANGED:
+        if r2obj.has_state(lv.STATE.CHECKED):
+            relay13.value(1)
+        else:
+            relay13.value(0)
+            
+def event_handlerR3(e):
+    r3code = e.get_code()
+    r3obj = e.get_target()
+    if r3code == lv.EVENT.VALUE_CHANGED:
+        if r3obj.has_state(lv.STATE.CHECKED):
+            relay14.value(1)
+        else:
+            relay14.value(0)
+            
+def event_handlerR4(e):
+    r4code = e.get_code()
+    r4obj = e.get_target()
+    if r4code == lv.EVENT.VALUE_CHANGED:
+        if r4obj.has_state(lv.STATE.CHECKED):
+            relay15.value(1)
+        else:
+            relay15.value(0)
+
+# Used for alignment and positioning in the screen.
+tab1.set_flex_flow(lv.FLEX_FLOW.COLUMN_WRAP)
+tab1.set_flex_align(lv.FLEX_ALIGN.CENTER, lv.FLEX_ALIGN.CENTER, lv.FLEX_ALIGN.CENTER)
+
+
+
+sw1 = lv.switch(tab1)
+sw1.add_event_cb(event_handlerR1 ,lv.EVENT.ALL, None)
+
+
+
+
+
+

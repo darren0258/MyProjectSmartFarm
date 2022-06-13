@@ -18,7 +18,7 @@ meter.remove_style(None, lv.PART.INDICATOR)
 
 scale = meter.add_scale()
 meter.set_scale_ticks(scale, 11, 2, 10, lv.palette_main(lv.PALETTE.GREY))
-meter.set_scale_major_ticks(scale, 1, 2, 30, lv.color_hex3(0xeee), 10)
+meter.set_scale_major_ticks(scale, 1, 2, 30, lv.color_hex3(0xeee), 15)
 meter.set_scale_range(scale, 0, 100, 270, 90)
 
 indic1 = meter.add_arc(scale, 10, lv.palette_main(lv.PALETTE.BLUE), 0)

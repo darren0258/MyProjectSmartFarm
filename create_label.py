@@ -7,8 +7,8 @@ from xpt2046 import xpt2046
 touch = xpt2046(cs=33,mhz=1,transpose=False, cal_x0=3780, cal_y1=252, cal_x1=393, cal_y0=3751)
 
 label = lv.label(lv.scr_act())
-label.set_text("RELAY CONTROL")
-label.align(lv.ALIGN.CENTER, 0, 0)
+label.set_text("l")
+label.align(0, 315, 225)
 
 
 
